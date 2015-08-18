@@ -131,10 +131,12 @@ public class MainActivity extends AppCompatActivity implements OnMovieSelectList
 
         //JSON node names
         private static final String TAG_RESULTS = "results";
+        private static final String TAG_ID = "id";
         private static final String TAG_TITLE = "original_title";
         private static final String TAG_OVERVIEW = "overview";
         private static final String TAG_DATE = "release_date";
         private static final String TAG_RATING = "vote_average";
+        private static final String TAG_VOTES = "vote_count";
         private static final String TAG_POSTER = "poster_path";
 
         private int counter = 0;
@@ -210,13 +212,15 @@ public class MainActivity extends AppCompatActivity implements OnMovieSelectList
 
         private MovieElement convertMovie(JSONObject obj) throws JSONException {
 
+            String id = obj.getString(TAG_ID);
             String name = obj.getString(TAG_TITLE);
             String poster = obj.getString(TAG_POSTER);
             String synopsis = obj.getString(TAG_OVERVIEW);
             String rating = obj.getString(TAG_RATING);
             String releaseDate = obj.getString(TAG_DATE);
+            String votes = obj.getString(TAG_VOTES);
 
-            return new MovieElement(name, API_IMAGE_URL + poster, synopsis, rating, releaseDate);
+            return new MovieElement(id, name, API_IMAGE_URL + poster, synopsis, rating, votes, releaseDate);
         }
 
     }

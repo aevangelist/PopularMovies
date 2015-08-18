@@ -29,6 +29,7 @@ public class MovieFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+
         try {
             selectListener = (OnMovieSelectListener) getActivity();
         } catch (ClassCastException e) {

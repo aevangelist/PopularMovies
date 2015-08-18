@@ -2,7 +2,10 @@ package com.alelievangelista.popularmovies;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -30,16 +33,36 @@ public class MovieDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(savedInstanceState != null && savedInstanceState.getParcelable("BUNDLE_MOVIE") != null) {
+
+        setHasOptionsMenu(true);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        if (savedInstanceState != null && savedInstanceState.getParcelable("BUNDLE_MOVIE") != null) {
             movieElement = savedInstanceState.getParcelable("BUNDLE_MOVIE");
         }
+    }
 
+    private ActionBar getActionBar() {return ((AppCompatActivity) getActivity()).getSupportActionBar();}
+
+
+    /**
+     * react to the user tapping the back/up icon in the action bar
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                getActivity().onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        if(movieElement != null){
+        if (movieElement != null) {
             outState.putParcelable("BUNDLE_MOVIE", movieElement);
         }
     }
@@ -61,7 +84,7 @@ public class MovieDetailFragment extends Fragment {
         movieSynopsis = (TextView) rootView.findViewById(R.id.movieSynopsis);
 
         //Set up
-        if(movieElement != null){
+        if (movieElement != null) {
             loadMovieDetails(movieElement);
         }
 
@@ -78,10 +101,10 @@ public class MovieDetailFragment extends Fragment {
 
         //Determine date components
         String[] splitDate = movieElement.getMovieDate().split("-");
-        if (splitDate.length == 3){
+        if (splitDate.length == 3) {
             movieMonth.setText(getMonth(splitDate[1]));
             movieYear.setText(splitDate[0]);
-        }else{
+        } else {
             movieMonth.setText("");
             movieYear.setText("");
         }
@@ -98,30 +121,30 @@ public class MovieDetailFragment extends Fragment {
 
     }
 
-    private String getName(String n){
-        if(n != null){
+    private String getName(String n) {
+        if (n != null) {
             return n;
-        }else{
+        } else {
             return "";
         }
     }
 
-    private String getRating(String r){
-        if(r != null){
+    private String getRating(String r) {
+        if (r != null) {
             //Transform raw rating
             int i = Double.valueOf(r).intValue();
             String u = String.valueOf(i);
 
             return u + "/10";
-        }else{
+        } else {
             return "UNRATED";
         }
     }
 
-    private String getSynopsis(String s){
-        if(s.equals(null)|| s.equals("No overview found.") || s.equals("null")){
+    private String getSynopsis(String s) {
+        if (s.equals(null) || s.equals("No overview found.") || s.equals("null")) {
             return "";
-        }else{
+        } else {
 
             return s;
         }
@@ -130,8 +153,9 @@ public class MovieDetailFragment extends Fragment {
     private String getMonth(String m) {
         int intMonth = Integer.parseInt(m);
         String monthString = "";
-        monthString = new DateFormatSymbols().getMonths()[intMonth-1];
+        monthString = new DateFormatSymbols().getMonths()[intMonth - 1];
 
         return monthString;
     }
+
 }

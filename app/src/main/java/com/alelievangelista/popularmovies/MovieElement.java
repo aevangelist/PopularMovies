@@ -8,18 +8,23 @@ import android.os.Parcelable;
  */
 public class MovieElement implements Parcelable {
 
+    private String movieId;
     private String movieName;
     private String moviePoster;
     private String movieSynopsis;
     private String movieRating;
+    private String movieVotes;
     private String movieDate;
 
 
-    public MovieElement (String name, String poster, String synopsis, String rating, String releaseDate) {
+    public MovieElement (String movieId, String name, String poster, String synopsis,
+                         String rating, String votes, String releaseDate) {
+        this.movieId = movieId;
         this.movieName = name;
         this.moviePoster = poster;
         this.movieSynopsis = synopsis;
         this.movieRating = rating;
+        this.movieVotes = votes;
         this.movieDate = releaseDate;
     }
 
@@ -27,11 +32,21 @@ public class MovieElement implements Parcelable {
      * For use with Parcelable creator
      */
     private MovieElement(Parcel in){
+        movieId = in.readString();
         movieName = in.readString();
         moviePoster = in.readString();
         movieSynopsis = in.readString();
         movieRating = in.readString();
+        movieVotes = in.readString();
         movieDate = in.readString();
+    }
+
+    public String getMovieId() {
+        return movieId;
+    }
+
+    public void setMovieId(String name) {
+        this.movieId = name;
     }
 
     public String getMovieName() {
@@ -66,6 +81,14 @@ public class MovieElement implements Parcelable {
         this.movieRating = a;
     }
 
+    public String getMovieVotes() {
+        return movieVotes;
+    }
+
+    public void setMovieVotes(String a) {
+        this.movieVotes = a;
+    }
+
     public String getMovieDate() {
         return movieDate;
     }
@@ -76,10 +99,12 @@ public class MovieElement implements Parcelable {
 
     @Override
     public String toString() {
-        return "Name: " + this.movieName  + "\n"
+        return "Movie ID: " + this.movieId + "\n" +
+                "Name: " + this.movieName  + "\n"
                 + "Poster: " + this.moviePoster + "\n" +
                 "Synopsis: " + this.movieSynopsis  + "\n" +
                 "Rating: " + this.movieRating  + "\n" +
+                "Votes: " + this.movieVotes  + "\n" +
                 "Date: " + this.movieDate;
 
 
@@ -92,10 +117,12 @@ public class MovieElement implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel p, int flags) {
+        p.writeString(movieId);
         p.writeString(movieName);
         p.writeString(moviePoster);
         p.writeString(movieSynopsis);
         p.writeString(movieRating);
+        p.writeString(movieVotes);
         p.writeString(movieDate);
     }
 

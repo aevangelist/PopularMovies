@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Sorting">
+
+        <ListPreference
+            android:title="Sorting method"
+            android:summary="The order in which data results are viewed"
+            android:key="PREF_SORT"
+            android:entries="@array/listArray"
+            android:entryValues="@array/listValues" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

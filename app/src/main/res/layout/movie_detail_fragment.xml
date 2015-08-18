@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:clickable="true"
+    tools:context="com.alelievangelista.popularmovies.MovieDetailFragment"
+    android:weightSum="1"
+    android:background="#ffffffff">
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:clickable="true"
+    tools:context="com.alelievangelista.popularmovies.MovieDetailFragment"
+    android:weightSum="1"
+    android:background="#ffffffff">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="@android:color/holo_blue_dark"
+        style="@style/MovieTitleHeaderStyle"
+        android:elevation="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/dummy_movie_name"
+            android:id="@+id/movieName"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:textColor="#ffffffff"
+            style="@style/MovieNameStyle" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#ffffffff">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="160dp"
+            android:id="@+id/movieImage"
+            android:layout_marginLeft="40dp"
+            android:background="#e52b2b2b"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/movieYear"
+                android:text="@string/dummy_date"
+                style="@style/MovieDateStyle" />
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/movieMonth"
+                android:text="@string/dummy_month"
+                android:textAllCaps="true"
+                style="@style/MovieMonthStyle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RATING:"
+                android:id="@+id/ratingHeader"
+                style="@style/MovieSynopsisStyle"
+                android:layout_marginTop="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dummy_rating"
+                android:id="@+id/movieRating"
+                style="@style/MovieRatingStyle"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SYNOPSIS:"
+        android:id="@+id/synopsisHeader"
+        style="@style/MovieSynopsisStyle"
+        android:layout_marginTop="20dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_weight="0.45">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dummy_synopsis"
+            android:id="@+id/movieSynopsis"
+            style="@style/MovieSynopsisStyle"/>
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>
+</LinearLayout>

@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Popular Movies</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="dummy_movie_name">Hello World Movie</string>
+
+    <string name="dummy_synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Fusce at ipsum sit amet felis fermentum scelerisque ut nec purus. Donec vel ultricies risus.
+        Etiam eu tellus dui. Proin est eros, congue ac nisl nec, luctus ultricies elit.
+        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        Proin auctor ornare vehicula. Fusce lacinia tortor lorem, id pellentesque tortor porta et.
+        Nunc sed imperdiet neque, nec volutpat orci. Duis eget sollicitudin metus.
+        Maecenas in ex pretium, imperdiet lectus in, lacinia justo. Fusce risus erat,
+        sodales ut placerat in, fermentum ut sapien.
+    </string>
+
+    <string name="dummy_date">2015</string>
+    <string name="dummy_month">August</string>
+    <string name="dummy_rating">8/10</string>
+
+    <string name="dummy_title"></string>
+
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_movie_detail">MovieDetailActivity</string>
+</resources>

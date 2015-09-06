@@ -11,35 +11,42 @@ public class MovieElement implements Parcelable {
     private String movieId;
     private String movieName;
     private String moviePoster;
+    private String movieBackdrop;
     private String movieSynopsis;
     private String movieRating;
     private String movieVotes;
     private String movieDate;
 
 
-    public MovieElement (String movieId, String name, String poster, String synopsis,
+    public MovieElement (String movieId, String name, String poster, String backdrop, String synopsis,
                          String rating, String votes, String releaseDate) {
         this.movieId = movieId;
         this.movieName = name;
         this.moviePoster = poster;
+        this.movieBackdrop = backdrop;
         this.movieSynopsis = synopsis;
         this.movieRating = rating;
         this.movieVotes = votes;
         this.movieDate = releaseDate;
     }
 
-    /**
-     * For use with Parcelable creator
-     */
-    private MovieElement(Parcel in){
-        movieId = in.readString();
-        movieName = in.readString();
-        moviePoster = in.readString();
-        movieSynopsis = in.readString();
-        movieRating = in.readString();
-        movieVotes = in.readString();
-        movieDate = in.readString();
+    @Override
+    public String toString() {
+        return "Movie ID: " + this.movieId + "\n" +
+                "Name: " + this.movieName  + "\n"
+                + "Poster: " + this.moviePoster + "\n" +
+                "Backdrop: " + this.movieBackdrop + "\n" +
+                "Synopsis: " + this.movieSynopsis  + "\n" +
+                "Rating: " + this.movieRating  + "\n" +
+                "Votes: " + this.movieVotes  + "\n" +
+                "Date: " + this.movieDate;
+
+
     }
+
+    /**
+     * Getters and Setters
+     */
 
     public String getMovieId() {
         return movieId;
@@ -63,6 +70,14 @@ public class MovieElement implements Parcelable {
 
     public void setMoviePoster(String a) {
         this.moviePoster = a;
+    }
+
+    public String getMovieBackdrop() {
+        return movieBackdrop;
+    }
+
+    public void setMovieBackdrop(String a) {
+        this.movieBackdrop = a;
     }
 
     public String getMovieSynopsis() {
@@ -97,17 +112,18 @@ public class MovieElement implements Parcelable {
         this.movieDate = a;
     }
 
-    @Override
-    public String toString() {
-        return "Movie ID: " + this.movieId + "\n" +
-                "Name: " + this.movieName  + "\n"
-                + "Poster: " + this.moviePoster + "\n" +
-                "Synopsis: " + this.movieSynopsis  + "\n" +
-                "Rating: " + this.movieRating  + "\n" +
-                "Votes: " + this.movieVotes  + "\n" +
-                "Date: " + this.movieDate;
-
-
+    /**
+     * For use with Parcelable creator
+     */
+    private MovieElement(Parcel in){
+        movieId = in.readString();
+        movieName = in.readString();
+        moviePoster = in.readString();
+        movieBackdrop = in.readString();
+        movieSynopsis = in.readString();
+        movieRating = in.readString();
+        movieVotes = in.readString();
+        movieDate = in.readString();
     }
 
     @Override
@@ -120,6 +136,7 @@ public class MovieElement implements Parcelable {
         p.writeString(movieId);
         p.writeString(movieName);
         p.writeString(moviePoster);
+        p.writeString(movieBackdrop);
         p.writeString(movieSynopsis);
         p.writeString(movieRating);
         p.writeString(movieVotes);

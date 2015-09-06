@@ -61,8 +61,12 @@ public class ImageAdapter extends ArrayAdapter<MovieElement> {
             holder = (ViewHolder) convertView.getTag();
 
         MovieElement e = itemList.get(position);
+        String moviePoster = e.getMoviePoster();
 
-        Picasso.with(context).load(e.getMoviePoster()).into(holder.imageView);
+        //Validate the URL
+        if(moviePoster != null){
+            Picasso.with(context).load(e.getMoviePoster()).into(holder.imageView);
+        }
 
         return convertView;
     }

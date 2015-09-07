@@ -89,48 +89,6 @@ public class MovieDetailFragment extends Fragment {
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-
-        Log.d("DetailFrag", "Creating menu for detail frag");
-        super.onCreateOptionsMenu(menu, inflater);
-
-        inflater.inflate(R.menu.details_menu, menu);
-
-        // Find the MenuItem that we know has the ShareActionProvider
-        shareItem = menu.findItem(R.id.action_share);
-
-        // Get its ShareActionProvider
-        shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
-
-        // Connect the dots: give the ShareActionProvider its Share Intent
-        if (shareActionProvider != null) {
-            shareActionProvider.setShareIntent(getShareIntent());
-        }
-
-    }
-
-    /**
-     * React to the user tapping the back/up icon in the action bar
-     */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                getActivity().onBackPressed();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    private Intent getShareIntent(){
-        shareIntent = new Intent();
-        shareIntent.setAction(Intent.ACTION_SEND);
-        shareIntent.setType("text/plain");
-        return shareIntent;
-    }
-
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -147,17 +105,6 @@ public class MovieDetailFragment extends Fragment {
             trailerElements = new ArrayList<TrailerElement>();
         }
 
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        if (movieElement != null) {
-            //Build the movie page element
-            outState.putParcelable("BUNDLE_MOVIE", movieElement);
-            outState.putParcelableArrayList("BUNDLE_REVIEWS", reviewElements);
-            outState.putParcelableArrayList("BUNDLE_TRAILERS", trailerElements);
-        }
     }
 
     @Override
@@ -201,6 +148,59 @@ public class MovieDetailFragment extends Fragment {
         }
 
         return rootView;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+
+        Log.d("DetailFrag", "Creating menu for detail frag");
+        super.onCreateOptionsMenu(menu, inflater);
+
+        inflater.inflate(R.menu.details_menu, menu);
+
+        // Find the MenuItem that we know has the ShareActionProvider
+        shareItem = menu.findItem(R.id.action_share);
+
+        // Get its ShareActionProvider
+        shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
+
+        // Connect the dots: give the ShareActionProvider its Share Intent
+        if (shareActionProvider != null) {
+            shareActionProvider.setShareIntent(getShareIntent());
+        }
+
+    }
+
+    /**
+     * React to the user tapping the back/up icon in the action bar
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                getActivity().onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private Intent getShareIntent(){
+        shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        return shareIntent;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (movieElement != null) {
+            //Build the movie page element
+            outState.putParcelable("BUNDLE_MOVIE", movieElement);
+            outState.putParcelableArrayList("BUNDLE_REVIEWS", reviewElements);
+            outState.putParcelableArrayList("BUNDLE_TRAILERS", trailerElements);
+        }
     }
 
     /**

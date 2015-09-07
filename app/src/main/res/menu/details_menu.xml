@@ -9,6 +9,6 @@
         android:icon="@drawable/share"
         android:orderInCategory="999"
         app:actionProviderClass="android.support.v7.widget.ShareActionProvider"
-        android:visible="false"/>
+        android:visible="true"/>
 
 </menu>

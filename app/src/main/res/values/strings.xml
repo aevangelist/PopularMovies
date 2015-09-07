@@ -29,7 +29,7 @@
     <string name="trailer_img_url_tail">/0.jpg</string>
 
     <!--API KEY-->
-    <string name="api_key"></string>
+    <string name="api_key">387e9b1680afd71a65f13ee0670dc6c6</string>
 
     <!--API LINKS-->
     <string name="api_url">https://api.themoviedb.org/3/movie/</string>

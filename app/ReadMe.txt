@@ -10,9 +10,15 @@ WELCOME
 =======================
 
 Thank you for reviewing my assignment!
-1) To get started, open the “strings” resource file and plug in your own API KEY
 
-Known Issues and Areas for improvement:
+To get started, open the “strings” resource file and plug in your own API KEY.
 
-- Menu/toolbar navigation (add a "share" menu option)
-- Database storage currently does not use Content Providers
+=======================
+
+THANK YOU
+
+=======================
+
+Picasso - Handles image pull from URL and image display
+TheMovieDB.org - Main API utlizied
+Icons8 - Providing the coloured icons for the app

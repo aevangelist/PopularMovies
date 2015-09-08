@@ -2,6 +2,7 @@ package com.alelievangelista.popularmovies;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 
 public class MainActivity extends AppCompatActivity implements OnMovieSelectListener {
@@ -25,7 +26,8 @@ public class MainActivity extends AppCompatActivity implements OnMovieSelectList
         getSupportFragmentManager().executePendingTransactions();
 
 
-        if (findViewById(R.id.movie_detail_fragment) != null) {
+        if (findViewById(R.id.details_container) != null) {
+            Log.d("", "DETERMINED TO BE TWO-PANE");
             isTwoPane = true;
         }
 
@@ -41,11 +43,17 @@ public class MainActivity extends AppCompatActivity implements OnMovieSelectList
             movieDetailFragment.loadMovieDetails(currMovie);
         }else{
 
-
             MovieDetailFragment fragment = new MovieDetailFragment();
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, fragment)
-                    .addToBackStack(MOVIE_DETAILS_TAG).commit();
+
+            if(isTwoPane){
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.details_container, fragment)
+                        .addToBackStack(MOVIE_DETAILS_TAG).commit();
+            }else{
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, fragment)
+                        .addToBackStack(MOVIE_DETAILS_TAG).commit();
+            }
 
             getSupportFragmentManager().executePendingTransactions();
 

@@ -73,6 +73,7 @@ public class MovieFragment extends Fragment {
         if(savedInstanceState == null || !savedInstanceState.containsKey(BUNDLE_MOVIES)) {
             movieElements = new ArrayList<MovieElement>();
             if(isNetworkAvailable()){
+                Log.d("MovieFragment", "Network available - getting movies");
                 GetMovieDataTask task = new GetMovieDataTask();
                 task.execute();
             }
@@ -290,10 +291,11 @@ public class MovieFragment extends Fragment {
         @Override
         protected ArrayList<MovieElement> doInBackground(Void... params) {
 
+            String sortingMethod;
             String url;
 
             //Determine sorting method
-            String sortingMethod = sharedPref.getString(PREFS_SORT, "1");
+            sortingMethod = sharedPref.getString(PREFS_SORT, "1");
 
             switch (sortingMethod) {
                 case "1":

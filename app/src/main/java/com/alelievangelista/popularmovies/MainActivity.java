@@ -17,13 +17,18 @@ public class MainActivity extends AppCompatActivity implements OnMovieSelectList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Do not add a new fragment if being restored from a previous state
+        if (savedInstanceState != null) {
+            return;
+        }
+
         //Load movie fragment
         MovieFragment movieFragment = new MovieFragment();
         getSupportFragmentManager().beginTransaction()
                 .addToBackStack(MOVIE_MAIN_TAG)
                 .add(R.id.container, movieFragment)
                 .commit();
-        getSupportFragmentManager().executePendingTransactions();
+        //getSupportFragmentManager().executePendingTransactions();
 
 
         if (findViewById(R.id.details_container) != null) {

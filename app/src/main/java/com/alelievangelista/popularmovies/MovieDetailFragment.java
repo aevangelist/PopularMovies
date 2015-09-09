@@ -596,7 +596,10 @@ public class MovieDetailFragment extends Fragment {
                 String url = "";
                 TrailerElement t = trailerElements.get(0);
                 url = t.getTrailerUrl();
-                shareIntent.putExtra(Intent.EXTRA_TEXT, "Check this out: " + url);
+
+                if(shareIntent != null){
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, "Check this out: " + url);
+                }
             }
         }
 

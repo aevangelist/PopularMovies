@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:text="Test"
                 android:id="@+id/reviewContent"
-                style="@style/ReviewerContentStyle"/>
+                style="@style/GenericContentStyle"/>
         </LinearLayout>
 
         <ImageView

@@ -1,6 +1,5 @@
 package com.alelievangelista.popularmovies;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -245,7 +244,8 @@ public class MovieFragment extends Fragment {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity().getBaseContext());
 
         String API_URL = getResources().getString(R.string.api_url);
-        String API_IMAGE_URL = getResources().getString(R.string.api_image_url);
+        String API_IMAGE_URL1 = getResources().getString(R.string.api_image_url1);
+        String API_IMAGE_URL2 = getResources().getString(R.string.api_image_url2);
         String API_KEY = getResources().getString(R.string.api_key);
         String API_PARAM1 = getResources().getString(R.string.api_params1);
         String API_PARAM2 = getResources().getString(R.string.api_params2);
@@ -405,7 +405,7 @@ public class MovieFragment extends Fragment {
             String releaseDate = obj.getString(TAG_DATE);
             String votes = obj.getString(TAG_VOTES);
 
-            return new MovieElement(id, name, API_IMAGE_URL + poster, API_IMAGE_URL + backdrop, synopsis, rating, votes, releaseDate);
+            return new MovieElement(id, name, API_IMAGE_URL1 + poster, API_IMAGE_URL2 + backdrop, synopsis, rating, votes, releaseDate);
         }
 
     }
@@ -414,16 +414,11 @@ public class MovieFragment extends Fragment {
     public void onResume() {
         super.onResume();
         refreshGridView();
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
 
         try {
             selectListener = (OnMovieSelectListener) getActivity();
         } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implement onSelect");
+            throw new ClassCastException("MovieFragment Activity" + " must implement onSelect");
         }
     }
 

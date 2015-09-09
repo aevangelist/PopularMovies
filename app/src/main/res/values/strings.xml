@@ -33,7 +33,8 @@
 
     <!--API LINKS-->
     <string name="api_url">https://api.themoviedb.org/3/movie/</string>
-    <string name="api_image_url">https://image.tmdb.org/t/p/w1000</string>
+    <string name="api_image_url1">https://image.tmdb.org/t/p/w300</string>
+    <string name="api_image_url2">https://image.tmdb.org/t/p/w600</string>
     <string name="api_params1">popular?api_key=</string>
     <string name="api_params2">top_rated?api_key=</string>
     <string name="api_params4">now_playing?api_key=</string>

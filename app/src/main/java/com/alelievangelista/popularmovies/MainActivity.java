@@ -17,6 +17,11 @@ public class MainActivity extends AppCompatActivity implements OnMovieSelectList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (findViewById(R.id.details_container) != null) {
+            Log.d("", "DETERMINED TO BE TWO-PANE");
+            isTwoPane = true;
+        }
+
         //Do not add a new fragment if being restored from a previous state
         if (savedInstanceState != null) {
             return;
@@ -29,12 +34,6 @@ public class MainActivity extends AppCompatActivity implements OnMovieSelectList
                 .add(R.id.container, movieFragment)
                 .commit();
         //getSupportFragmentManager().executePendingTransactions();
-
-
-        if (findViewById(R.id.details_container) != null) {
-            Log.d("", "DETERMINED TO BE TWO-PANE");
-            isTwoPane = true;
-        }
 
     }
 
